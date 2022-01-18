@@ -1,0 +1,45 @@
+{
+  "name": "@sumologic/opentelemetry-node",
+  "version": "1.0.0-beta1",
+  "description": "Adds OpenTelemetry tracing auto-instrumentation for Node.js",
+  "main": "./dist/sumologic-opentelemetry-node.js",
+  "files": [
+    "dist"
+  ],
+  "bin": "./dist/sumologic-opentelemetry-node.js",
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
+    "prettier-check-all": "prettier --check .",
+    "prettier-format-all": "prettier --write .",
+    "test": "npm run prettier-check-all"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
+  "repository": "SumoLogic/sumologic-opentelemetry-node",
+  "author": "Sumo Logic Authors",
+  "license": "Apache-2.0",
+  "keywords": [
+    "opentelemetry",
+    "tracing",
+    "sumologic",
+    "sumo",
+    "node",
+    "ot"
+  ],
+  "devDependencies": {
+    "@types/node": "^17.0.9",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.0.4",
+    "@opentelemetry/auto-instrumentations-node": "^0.27.1",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.27.0",
+    "@opentelemetry/sdk-node": "^0.27.0"
+  }
+}
