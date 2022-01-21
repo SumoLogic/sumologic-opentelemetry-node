@@ -1,6 +1,6 @@
 {
   "name": "@sumologic/opentelemetry-node",
-  "version": "1.0.0-beta1",
+  "version": "1.0.0-beta2",
   "description": "Adds OpenTelemetry tracing auto-instrumentation for Node.js",
   "main": "./dist/sumologic-opentelemetry-node.js",
   "files": [
