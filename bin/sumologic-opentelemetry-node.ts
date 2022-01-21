@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
 import process from 'process';
-import fs from 'fs/promises';
+import fs from 'fs';
+import { promisify } from 'util';
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
@@ -11,11 +12,13 @@ const sdk = new NodeSDK({
   instrumentations: getNodeAutoInstrumentations(),
 });
 
+const realpath = promisify(fs.realpath);
+
 const start = async () => {
   await sdk.start();
 
   const [_node, _thisBin, givenEntryPath] = process.argv;
-  const realEntryPath = await fs.realpath(givenEntryPath);
+  const realEntryPath = await realpath(givenEntryPath);
 
   // when running `node .` the second argument is automatically converted, so we're doing the same thing here
   process.argv[2] = realEntryPath;

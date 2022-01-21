@@ -3,11 +3,11 @@
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es6",
+    "target": "ES2018",
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
     "skipLibCheck": true,
-    "lib": ["es2015"]
+    "lib": ["es2018"]
   }
 }
