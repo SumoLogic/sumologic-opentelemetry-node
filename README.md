@@ -2,6 +2,8 @@
 
 An all-in-one runner for node.js projects used to enable OpenTelemetry auto-instrumentation.
 
+It contains all supported detectors, propagators and auto-instrumentation plugins.
+
 ## Usage
 
 Instead of running your script like `node index.js`, do `npx @sumologic/opentelemetry-node index.js`.
@@ -10,7 +12,7 @@ Your `index.js` file will run automatically with a started [`@opentelemetry/sdk-
 
 Remember to provide configuration using environment variables:
 
-- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` - your traces collector's source URL
+- `OTEL_EXPORTER_OTLP_TRACES_ENDPOINT` - source URL of your traces collector
 - `OTEL_SERVICE_NAME` - a logical service name that represents its business logic
 - `OTEL_RESOURCE_ATTRIBUTES` - extra attributes attached to all spans
 
@@ -36,7 +38,7 @@ This package enables all officially supported core and contrib auto-instrumentat
 
 ## Manual instrumentation
 
-In order to create spans manually, install `@opentelemetry/api` package `npm i @opentelemetry/api@^1.0.4`.
+In order to create spans manually, install `@opentelemetry/api` package: `npm i @opentelemetry/api@^1.0.4`.
 
 Example:
 
