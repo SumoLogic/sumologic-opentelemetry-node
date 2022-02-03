@@ -17,7 +17,8 @@ const realpath = promisify(fs.realpath);
 const start = async () => {
   await sdk.start();
 
-  const [_node, _thisBin, givenEntryPath] = process.argv;
+  // argv has form of nodePath, thisBigPath, givenEntryPath, ...rest
+  const givenEntryPath = process.argv[2];
   const realEntryPath = await realpath(givenEntryPath);
 
   // when running `node .` the second argument is automatically converted, so we're doing the same thing here
